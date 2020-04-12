@@ -6,7 +6,7 @@
 
 # Getting Started
 
-This repository is a starting point for developing your own module (mod) for Mount & Blade II Bannerlord with MSBuild, .NET SDK and VSCode but **without Visual Studio**. If you're new to software development in general I suggest you follow a more straightforward guide, this one's a bit more involved.
+This repository is a starting point for developing your own module (mod) for Mount & Blade II Bannerlord with **MSBuild**, **.NET Core SDK** and **VSCode** but **without Visual Studio**. If you're new to software development in general I suggest you follow a more straightforward guide, this one's a bit more involved.
 
 From a clean Windows 10 installation you'll need:
 
