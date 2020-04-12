@@ -35,5 +35,5 @@ if ($Config -eq "Debug") {
 
 # Archive the final folder if we're releasing.
 if ($Config -eq "Release") {
-    Compress-Archive "$dist\$Name" "$dist\$Name.zip"
+    Compress-Archive "$dist\$Name" "$dist\$Name-$Version.zip"
 }
