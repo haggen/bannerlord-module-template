@@ -11,7 +11,7 @@ param (
 $dist = ".\dist"
 
 # Clean dist folder.
-Remove-Item "$dist" -Recurse
+Remove-Item "$dist\$Name" -Recurse
 
 # Create final module folder in the `dist` directory.
 Copy-Item ".\Module" -Destination "$dist\$Name" -Recurse -Exclude SubModule.xml, .gitkeep
