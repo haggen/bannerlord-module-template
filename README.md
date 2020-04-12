@@ -6,7 +6,7 @@
 
 # Getting Started
 
-This a starting point for developing a module (mod) for Mount & Blade II Bannerlord with MSBuild, .NET SDK and VSCode but **without Visual Studio**. If you're new to software development in general I suggest you follow a more straightforward guide, this one's a bit more involved.
+This repository is a starting point for developing your own module (mod) for Mount & Blade II Bannerlord with MSBuild, .NET SDK and VSCode but **without Visual Studio**. If you're new to software development in general I suggest you follow a more straightforward guide, this one's a bit more involved.
 
 From a clean Windows 10 installation you'll need:
 
@@ -43,25 +43,31 @@ Here's a rundown of the repository:
 
 Download the latest release from [Releases](releases) and extract into the `Modules` directory inside your game installation folder. e.g. `C:\Steam\steamapps\common\Mount & Blade II Bannerlord`.
 
-Open the launcher, enable the module and click Play.
+Open the game launcher, enable the module and click Play.
 
 # Usage
 
-...
+_Write instructions for the player..._
 
 # Development
 
 Copy `env.example.xml` to `env.xml` and edit the settings according to your environment. Watch out for the ampersand in XML files.
 
-Run `dotnet build -c Debug|Release` to debug/build your module.
-
-The `PostBuild.ps1` script will execute on successful builds, and assemble the final distributable folder of the module inside the `.\dist` directory.
+The `PostBuild.ps1` script will auto execute on successful builds, and assemble the final distributable folder of the module inside the `.\dist` directory.
 
 ## Debug
+
+```ps1
+PS C:\> dotnet build -c Debug
+```
 
 When you build in `Debug` configuration the `PostBuild.ps1` script will also copy the module folder in place and launch the game loading a bare minimum set of modules for a quick test run.
 
 ## Release
+
+```ps1
+PS C:\> dotnet build -c Release
+```
 
 When you build in `Release` configuration the `PostBuild.ps1` script will also produce an archive in the `.\dist` directory, specific to the version being built. That's what you upload to the internet.
 
