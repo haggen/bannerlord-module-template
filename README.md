@@ -6,7 +6,7 @@
 
 # Getting Started
 
-This a starting point for developing a module (mod) for Mount & Blade II Bannerlord with GitHub, MSBuild, .NET SDK and VSCode but **without Visual Studio**. If you're new to software development in general I suggest you follow a more straight forward guide, this one's a bit more involved.
+This a starting point for developing a module (mod) for Mount & Blade II Bannerlord with MSBuild, .NET SDK and VSCode but **without Visual Studio**. If you're new to software development in general I suggest you follow a more straightforward guide, this one's a bit more involved.
 
 From a clean Windows 10 installation you'll need:
 
@@ -23,7 +23,7 @@ On the Visual Studio Installer window you should select **Individual Components*
 
 Once everything is installed, launch VSCode, install the most popular C# extension and follow any instructions.
 
-Finally clone this repository somewhere, open the folder in VSCode and replace every instance of the following, and you're good to go. Remember to rename the files as well.
+Finally clone this repository somewhere, open the folder in VSCode, replace every instance of the following, and you're good to go. Remember to rename the files as well.
 
 - `ExampleModule` with the actual module name.
 - `YourName` with, you guessed it, your name.
@@ -35,8 +35,7 @@ Here's a rundown of the repository:
 - The module's files go into the `Module` directory. Everything there will be copied as-is to the final distributable folder, with just one exception...
 - The `SubModule.xml` will have macros, like `$(Name)` and `$(Version)` replaced with their actual value by the `PostBuild.ps1` script.
 - The `ExampleModuleSubModule.cs` is the entrypoint of your source code. The resulting DLL will also be copied into the final distributable folder by `PostBuild.ps1` script.
-- You build the project using the [MSBuild CLI](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019). I suggest using PowerShell.
-- The `.github` directory holds a workflow configuration to automate building and releasing your module using [GitHub Actions](https://github.com/features/actions).
+- You build the project using the [MSBuild CLI](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019). See the [Development section](#Development) below.
 
 <!-- /Delete-me after read -->
 
@@ -56,12 +55,17 @@ Copy `env.example.xml` to `env.xml` and edit the settings according to your envi
 
 Run `dotnet build -c Debug|Release` to debug/build your module.
 
-The `PostBuild.ps1` script will auto execute on successful builds, and;
+The `PostBuild.ps1` script will execute on successful builds, and assemble the final distributable folder of the module inside the `.\dist` directory.
 
-1. Assemble the `dist` directory with the module folder inside ready for distribution.
-2. On `Debug` configuration it'll also install the module and run the game for a test drive.
+## Debug
 
-To release a new version bump the numbers in the `csproj` file, tag the commit like `v1.0.0`, and push to GitHub.
+When you build in `Debug` configuration the `PostBuild.ps1` script will also copy the module folder in place and launch the game loading a bare minimum set of modules for a quick test run.
+
+## Release
+
+When you build in `Release` configuration the `PostBuild.ps1` script will also produce an archive in the `.\dist` directory, specific to the version being built. That's what you upload to the internet.
+
+Remember to bump the version inside the `csproj` file, tag the commit--like this `v1.0.0`--and rebuild.
 
 # Legal
 
