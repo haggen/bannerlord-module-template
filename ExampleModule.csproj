@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Exec Command="powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File .\PostBuild.ps1 -Name &quot;$(ProjectName)&quot; -Dll &quot;$(TargetPath)&quot; -Game &quot;$(GamePath)&quot; -Config $(Configuration)" />
+        <Exec Command="powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\PostBuild.ps1 -Name &quot;$(ProjectName)&quot; -Dll &quot;$(TargetPath)&quot; -Game &quot;$(GamePath)&quot; -Config $(Configuration)" />
     </Target>
 
     <ItemGroup>
