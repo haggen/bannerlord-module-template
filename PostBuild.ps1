@@ -30,7 +30,7 @@ Copy-Item "$dist\$Name" -Destination "$Game\Modules" -Recurse
 
 # Run the game with our module if we're debugging.
 if ($Config -eq "Debug") {
-    Start-Process -FilePath "$Game\bin\Win64_Shipping_Client\Bannerlord.exe" -ArgumentList "/singleplayer _MODULES_*Native*SandBoxCore*CustomBattle*SandBox*StoryMode*$Name*_MODULES_"
+    Start-Process -FilePath "$Game\bin\Win64_Shipping_Client\Bannerlord.exe" -WorkingDirectory "$Game\bin\Win64_Shipping_Client" -ArgumentList "/singleplayer _MODULES_*Native*SandBoxCore*CustomBattle*SandBox*StoryMode*$Name*_MODULES_"
 }
 
 # Archive the final folder if we're releasing.
