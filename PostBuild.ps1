@@ -9,6 +9,7 @@ param (
 
 # Set dist folder.
 $dist = ".\dist"
+$Version = (Get-ChildItem "$Dll").VersionInfo.FileVersion
 
 # Clean dist folder.
 Remove-Item "$dist\$Name" -Recurse
@@ -21,7 +22,7 @@ Copy-Item "$Dll" -Destination "$dist\$Name\bin\Win64_Shipping_Client"
 
 # Evaluate macros and copy SubModule.xml.
 (Get-Content ".\Module\SubModule.xml" -Raw) `
-    -Replace '\$\(Version\)', (Get-ChildItem "$Dll").VersionInfo.FileVersion `
+    -Replace '\$\(Version\)', "$Version" `
     -Replace '\$\(Name\)', "$Name" | Set-Content -Path "$dist\$Name\SubModule.xml"
 
 # Install the module into the game directory.
