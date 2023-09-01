@@ -35,5 +35,10 @@ if ($Config -eq "Debug") {
 
 # Archive the final folder if we're releasing.
 if ($Config -eq "Release") {
+    # Check if the archive already exists.
+    if (Test-Path "$dist\$Name-$Version.zip") {
+        Remove-Item "$dist\$Name-$Version.zip"
+    }
+    
     Compress-Archive "$dist\$Name" "$dist\$Name-$Version.zip"
 }
