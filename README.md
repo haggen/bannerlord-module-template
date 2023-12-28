@@ -2,13 +2,13 @@
 
 > Example of a module for Mount & Blade II Bannerlord.
 
-<!-- Delete-me after read -->
+---✂️--- Below is the instruction for the module template, remove before release. ---✂️---
 
 # Getting Started
 
 This repository is a starting point for developing your own module (mod) for Mount & Blade II Bannerlord with **MSBuild**, **.NET Core SDK** and **VSCode** but **without Visual Studio**. If you're new to software development in general I suggest you follow [a more straightforward guide](https://docs.bannerlordmodding.com/_tutorials/basic-csharp-mod), this one's a bit more involved.
 
-From a clean Windows 10 installation you'll need:
+From a clean Windows installation you'll need:
 
 1. [Git](https://git-scm.com/download/win)
 2. [VSCode](https://code.visualstudio.com/download)
@@ -37,7 +37,7 @@ Here's a rundown of the repository:
 - The `ExampleModuleSubModule.cs` is the entrypoint of your source code. The resulting DLL will also be copied into the final distributable folder by `PostBuild.ps1` script.
 - You build the project using the [MSBuild CLI](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019). See the [Development section](#Development) below.
 
-<!-- /Delete-me after read -->
+---✂️--- Above is the instruction for the module template, remove before release. ---✂️---
 
 # Installation
 
